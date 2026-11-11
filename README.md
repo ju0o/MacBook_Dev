@@ -40,19 +40,35 @@ xcode-select -p
 brew --version
 ```
 
-## 2. 이 저장소를 받아서 상태부터 확인
+## 2. 이 저장소 다운로드 (Git 설치 전에도 가능)
+
+**처음 맥북을 설정한다면 Git 없이 ZIP으로 받는 방법을 추천해요.**
+
+1. [MacBook_Dev GitHub 저장소](https://github.com/ju0o/MacBook_Dev)를 엽니다.
+2. 파일 목록 위의 **Code → Download ZIP**을 누릅니다.
+3. 다운로드한 `MacBook_Dev-main.zip`의 압축을 풉니다.
+4. 터미널을 열고, 압축 해제 폴더 안의 `setup.sh` 파일을 실행합니다.
+
+예를 들어 다운로드 폴더에서 바로 압축을 풀었다면:
+
+```bash
+cd ~/Downloads/MacBook_Dev-main
+bash setup.sh --check
+bash setup.sh --plan
+```
+
+압축을 푼 위치가 다르면 Finder에서 해당 폴더를 터미널 창에 끌어 놓아 정확한 경로를 확인하세요. `--check`와 `--plan`은 설치하거나 설정을 바꾸지 않습니다.
+
+**이미 Git이 설치되어 있다면** 다음 명령으로 받을 수도 있어요.
 
 ```bash
 git clone https://github.com/ju0o/MacBook_Dev.git
 cd MacBook_Dev
 bash setup.sh --check
-```
-
-`--check`는 설치·설정 변경 없이, 지금 설치된 도구를 확인합니다. `--plan`은 설치 대상 목록만 보여줍니다.
-
-```bash
 bash setup.sh --plan
 ```
+
+> ZIP 다운로드는 현재 파일의 복사본이며 Git 이력과 원격 연결 정보가 없습니다. 개발환경 설치에만 쓰려면 ZIP으로 충분하고, 지속적으로 Git 변경 이력을 관리하려면 Git 설치 후 `clone`하세요.
 
 ## 3. 필요한 도구 설치
 
@@ -103,6 +119,9 @@ gh auth login
 로그인 암호, 액세스 토큰, SSH 개인키, `.env` 파일은 GitHub에 업로드하거나 다른 사람에게 공유하지 마세요.
 
 ## 자주 묻는 질문
+
+**Q. Git 설치 전인데 GitHub 저장소를 어떻게 받나요?**  
+GitHub 웹사이트의 **Code → Download ZIP**을 사용하면 됩니다. 별도의 GitHub 앱이나 Git 명령어가 필요하지 않습니다.
 
 **Q. 이걸 실행하면 Mac 전체 설정이 바뀌나요?**  
 아니요. `--check`와 `--plan`은 읽기 전용이고 `--install`은 지정한 Homebrew 패키지만 설치합니다. macOS 원격 로그인, VPN, 절전 모드, 사용자 계정, 터미널/셸 프로필은 자동 변경하지 않습니다.
