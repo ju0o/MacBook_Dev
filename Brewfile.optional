@@ -1,0 +1,5 @@
+# 선택 설치: 터미널과 버전 관리 도구
+brew "tmux"
+brew "ripgrep"
+brew "fzf"
+brew "fnm"
